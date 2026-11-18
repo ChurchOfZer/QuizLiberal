@@ -1,0 +1,18 @@
+# Old PHP version, replaced by site/ and kept on disk only for reference.
+# phpformbuilder is a paid third-party library: it must never be published.
+/index.php
+/diag.php
+/diagnostic.php
+/diag-test.php
+/test.php
+/phpformbuilder/
+/php_errorlog
+/file-uploads/
+/pyramide*.jpg
+
+# Local and OS clutter
+*.tar.gz
+Thumbs.db
+desktop.ini
+.DS_Store
+.claude/settings.local.json

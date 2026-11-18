@@ -1,0 +1,6 @@
+# Goes in churchofzer.com/public_html/Diagnostic/ (the quiz's old folder).
+# The quiz moved to https://www.libertarien.net/QuizLiberal/ : every old address
+# (the page, diag.php, diagnostic.php, the pyramid images…) is permanently redirected there.
+RewriteEngine On
+RewriteRule ^(pyramide[0-5]\.jpg)$ https://www.libertarien.net/QuizLiberal/$1 [R=301,L]
+RewriteRule ^ https://www.libertarien.net/QuizLiberal/ [R=301,L]

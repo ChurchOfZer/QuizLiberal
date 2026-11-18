@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Diagnostic libéral · Où vous situez-vous ?</title>
+  <meta name="description" content="64 questions, moins de 10 minutes : situez-vous, ou jaugez votre entourage, sur la pyramide de la Liberté, de l'étatiste à l'anarcho-capitaliste.">
+  <link rel="canonical" href="https://www.libertarien.net/QuizLiberal/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Diagnostic libéral · Où vous situez-vous ?">
+  <meta property="og:description" content="64 questions, moins de 10 minutes : situez-vous sur la pyramide de la Liberté.">
+  <meta property="og:url" content="https://www.libertarien.net/QuizLiberal/">
+  <meta property="og:image" content="https://www.libertarien.net/QuizLiberal/pyramide5.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f5f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1317" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="diagnostic.css?v=2">
+  <script src="diagnostic.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="page site-header-row">
+      <a class="brand" href="/" aria-label="Mouvement des Libertariens, accueil">
+        <img src="logo.svg" width="36" height="36" alt="">
+        <span>Mouvement<br class="br-xs"> des Libertariens</span>
+      </a>
+      <span class="header-tag">Diagnostic libéral</span>
+    </div>
+  </header>
+
+  <!-- Quiz progress: shown while answering -->
+  <div class="quiz-bar" id="quiz-bar" hidden>
+    <div class="page quiz-bar-row">
+      <span class="quiz-bar-title">Diagnostic libéral</span>
+      <div class="progress" role="progressbar" aria-label="Questions répondues" aria-valuemin="0" aria-valuemax="64" aria-valuenow="0" id="progress">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="quiz-bar-count" id="progress-count">0/64</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ Intro ============ -->
+    <section class="view page intro" id="view-intro" aria-labelledby="intro-title">
+      <div class="intro-text">
+        <p class="eyebrow">Quiz libéral · QuizLiberal.xyz</p>
+        <h1 id="intro-title" class="display">Diagnostic <span class="flame-text">libéral.</span></h1>
+        <p class="lead">
+          Pour vous aider à vous positionner, ou à jauger le degré de libéralisme de votre entourage,
+          des journalistes, des politiciens ou de votre chanteuse préférée, voici un exercice simple
+          de moins de 10&nbsp;minutes.
+        </p>
+        <ul class="pills" aria-label="En bref">
+          <li class="pill">64 questions</li>
+          <li class="pill">Moins de 10 minutes</li>
+          <li class="pill">Anonyme : rien n'est envoyé</li>
+        </ul>
+        <div class="actions" id="intro-actions">
+          <button type="button" class="btn btn-accent btn-lg" data-action="start">
+            Commencer le diagnostic
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <noscript><p class="notice">Ce questionnaire a besoin de JavaScript pour fonctionner. Activez-le puis rechargez la page.</p></noscript>
+      </div>
+
+      <aside class="card steps-card" aria-labelledby="steps-title">
+        <h2 id="steps-title" class="steps-title">Comment ça marche</h2>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Répondez aux 64 questions, une à la fois. Pas de bonne ou de mauvaise réponse&nbsp;: soyez sincère.</span></li>
+          <li><span class="step-num">2</span><span>Vos réponses restent dans votre navigateur. Vous pouvez faire une pause et reprendre plus tard.</span></li>
+          <li><span class="step-num">3</span><span>Découvrez où vous vous situez sur la pyramide de la Liberté.</span></li>
+        </ol>
+        <p class="steps-foot">Raccourcis clavier&nbsp;: <kbd>A</kbd>–<kbd>D</kbd> ou <kbd>1</kbd>–<kbd>4</kbd> pour répondre, <kbd>←</kbd> <kbd>→</kbd> pour naviguer.</p>
+      </aside>
+    </section>
+
+    <!-- ============ Questions ============ -->
+    <section class="view page page-narrow quiz" id="view-quiz" hidden>
+      <div id="question" class="question">
+        <p class="eyebrow" id="question-eyebrow">Question 1 sur 64</p>
+        <h1 id="question-text" class="question-text" tabindex="-1"></h1>
+        <div class="answers" id="answers" role="group" aria-labelledby="question-text"></div>
+      </div>
+
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-ghost" data-action="prev" id="btn-prev">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          Précédente
+        </button>
+        <button type="button" class="btn btn-secondary" data-action="next" id="btn-next">
+          Suivante
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <p class="finish-hint" id="finish-hint" hidden></p>
+
+      <nav class="jump" aria-labelledby="jump-title">
+        <p class="jump-title" id="jump-title">Toutes les questions <span class="hide-sm">· raccourcis&nbsp;: <kbd>A</kbd>–<kbd>D</kbd> ou <kbd>1</kbd>–<kbd>4</kbd>, flèches</span></p>
+        <div class="jump-grid" id="jump-grid"></div>
+      </nav>
+    </section>
+
+    <!-- ============ Result ============ -->
+    <section class="view page page-narrow result" id="view-result" hidden aria-labelledby="result-title">
+      <div class="card result-card">
+        <div class="result-head">
+          <p class="eyebrow eyebrow-on-dark">D'après vos réponses…</p>
+          <h1 id="result-title" class="result-title" tabindex="-1"></h1>
+          <p class="result-extra" id="result-extra" hidden></p>
+          <ol class="ladder" id="ladder" aria-label="Votre position sur la pyramide"></ol>
+          <p class="ladder-caption" id="ladder-caption" aria-hidden="true"></p>
+        </div>
+        <div class="flame-rule"></div>
+        <figure class="pyramid">
+          <img id="pyramid-img" src="pyramide0.jpg" width="1280" height="720" alt="">
+        </figure>
+        <div class="result-body">
+          <div class="result-actions">
+            <button type="button" class="btn btn-secondary" data-action="review">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+              Revoir mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" data-action="share" id="btn-share">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v14"/></svg>
+              <span>Partager le quiz</span>
+            </button>
+            <button type="button" class="btn btn-primary" data-action="restart">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>
+              Recommencer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a class="card link-card" href="https://www.taxervoler.xyz">
+        <span class="link-card-text">
+          <span class="eyebrow">Et maintenant</span>
+          <span class="link-card-title">Vous souhaiterez sans doute vérifier si <em>Taxer, c'est voler</em>.</span>
+        </span>
+        <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/TWj8jFixYoM" title="Pour Ainsi Dire – 01 – La pyramide libérale (vidéo YouTube)" loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="flame-rule"></div>
+    <div class="page site-footer-row">
+      <span>Diagnostic libéral · <a href="https://www.quizliberal.xyz">QuizLiberal.xyz</a></span>
+      <a href="/">Mouvement des Libertariens</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

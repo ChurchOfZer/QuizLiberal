@@ -1,0 +1,22 @@
+# Diagnostic libéral, served at https://www.libertarien.net/QuizLiberal/
+#
+# The libertarien.net root .htaccess sends every unknown path to the React app.
+# Having RewriteEngine On here replaces those rules for this folder, so Apache
+# serves this folder's own index.html instead.
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_headers.c>
+  # Page, styles and script: always revalidated, so an update shows up at once.
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Fonts, images, logo: they never change.
+  <FilesMatch "\.(woff2|jpg|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

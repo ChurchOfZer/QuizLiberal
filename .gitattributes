@@ -1,0 +1,4 @@
+# Keep LF everywhere: the files go to a Linux server as they are.
+* text=auto eol=lf
+*.jpg binary
+*.woff2 binary
